@@ -1,3 +1,4 @@
+/**Naked Linked Lists*/
 public class IntList {
 
     public  int first;

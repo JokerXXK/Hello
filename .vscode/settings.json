@@ -1,0 +1,6 @@
+// 直接复制粘贴这段即可
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
