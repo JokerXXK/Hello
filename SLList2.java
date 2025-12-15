@@ -1,4 +1,4 @@
-public class SLList2<LochNess> {
+public class SLList2<LochNess>{
 
     private class StuffNode {
     
@@ -65,5 +65,6 @@ public class SLList2<LochNess> {
     public int size() {
         return size;
     }
+    
 
 }
