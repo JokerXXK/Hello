@@ -1,6 +1,6 @@
 public class SLList<Blorp> implements List61B<Blorp> {
 
-    private class Node {
+    public class Node {
     
         public Blorp item;
         public Node next;
