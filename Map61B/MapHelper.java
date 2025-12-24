@@ -1,4 +1,4 @@
-package src.experiments.Map61B;
+package Map61B;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

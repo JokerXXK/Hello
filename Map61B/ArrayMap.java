@@ -1,4 +1,4 @@
-package src.experiments.Map61B;
+package Map61B;
 import java.util.List;
 import java.util.ArrayList;
 //import org.junit.Assert.*;
