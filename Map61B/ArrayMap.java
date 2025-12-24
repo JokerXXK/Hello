@@ -4,8 +4,9 @@ import java.util.ArrayList;
 //import org.junit.Assert.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.Iterator;
 
-public class ArrayMap<K,V> implements Map61B<K,V> {
+public class ArrayMap<K,V> implements Map61B<K,V>, Iterable<K> {
     private K[] keys;
     private V[] values;
     private int size;
@@ -14,6 +15,28 @@ public class ArrayMap<K,V> implements Map61B<K,V> {
         keys = (K[]) new Object[100];
         values = (V[]) new Object[100];
         size = 0;
+    }
+
+    public Iterator<K> iterator() {
+        return new keyIterator();
+    }
+
+    private class keyIterator implements Iterator<K> {
+        private int index;
+
+        public keyIterator() {
+            index = 0;
+        }
+
+        public boolean hasNext() {
+            return index < size;
+        }
+
+        public K next() {
+            K key = keys[index];
+            index++;
+            return key;
+        }
     }
 
     private int keyIndex(K key) {
@@ -42,10 +65,11 @@ public class ArrayMap<K,V> implements Map61B<K,V> {
 
     public V get(K key) {
         int index = keyIndex(key); 
-        if (index != -1) {
-            return values[index];
+        if (index == -1) {
+            throw new IllegalArgumentException("Key not found: " + key);
+            
         }
-        return null;
+        return values[index];
     }
     public int size() {
         return size;
