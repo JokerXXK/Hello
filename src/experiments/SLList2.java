@@ -1,3 +1,4 @@
+package src.experiments;
 public class SLList2<LochNess>{
 
     private class StuffNode {

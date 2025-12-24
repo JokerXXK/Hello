@@ -1,3 +1,4 @@
+package src.experiments;
 public class Maximizer {
     public static <T extends Comparable<T>> T max(T[] arr) {
         if (arr == null || arr.length == 0) {

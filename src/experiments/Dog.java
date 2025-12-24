@@ -1,3 +1,4 @@
+package src.experiments;
 public class Dog {
 
     public int WeightInPounds;

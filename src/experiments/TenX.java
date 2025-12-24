@@ -1,3 +1,4 @@
+package src.experiments;
 public class TenX implements IntUnaryFunction {
     @Override
     public int apply(int x) {

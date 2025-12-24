@@ -1,3 +1,4 @@
+package src.experiments;
 import java.util.Comparator;
 public class Dog2 implements Comparable<Dog2> {
     private String name;

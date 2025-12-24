@@ -1,3 +1,4 @@
+package src.experiments;
 public class WordUtils {
     /** Returns the longest word in the list. */
     public static String longest(List61B<String> list) {
