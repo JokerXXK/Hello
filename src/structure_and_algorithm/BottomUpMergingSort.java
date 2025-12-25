@@ -46,7 +46,7 @@ class BottomUpMergingSort {
 
     public void bottomUpMergeSort(int[] arr) {
         int n = arr.length;
-        for (int currSize = 1; currSize <= n - 1; currSize = 2 * currSize) {
+        for (int currSize = 1; currSize < n ; currSize = 2 * currSize) {
             for (int leftStart = 0; leftStart < n - currSize; leftStart += 2 * currSize) {
                 int mid = leftStart + currSize - 1;
                 int rightEnd = Math.min(leftStart + 2 * currSize - 1, n - 1);
