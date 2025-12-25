@@ -1,5 +1,5 @@
 package src.structure_and_algorithm;
-
+//O(N^2) 时间复杂度，O(1)空间复杂度，不稳定排序算法
 public class SelectionSort {
     static void selectionSort(int[] arr) {
         int n = arr.length;

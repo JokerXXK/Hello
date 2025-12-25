@@ -1,5 +1,5 @@
 package src.structure_and_algorithm;
-
+// O(N log N) 时间复杂度，O(N)空间复杂度，稳定排序算法
 public class TopDownMergingSort {
     static void merge(int[] arr, int left, int mid, int right) {
         if (arr[mid]<=arr[mid+1]) {
