@@ -1,4 +1,4 @@
-public package src.structure_and_algorithm;
+package src.structure_and_algorithm;
 
 class BottomUpMergingSort {
 
