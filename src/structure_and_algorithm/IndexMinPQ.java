@@ -3,14 +3,13 @@ package src.structure_and_algorithm;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-import edu.princeton.cs.algs4.StdOut;
 
 public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer> {
-    private int maxN;           // 最大容量
-    private int n;              // 当前元素数量
-    private int[] pq;           // 索引堆（1-based）
-    private int[] qp;           // 逆映射：qp[pq[i]] = pq[qp[i]] = i
-    private Key[] keys;         // 存储实际值
+    private int maxN;           
+    private int n;              
+    private int[] pq;           
+    private int[] qp;           
+    private Key[] keys;         
 
     public IndexMinPQ(int maxN) {
         if (maxN < 0) throw new IllegalArgumentException();
@@ -19,7 +18,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         keys = (Key[]) new Comparable[maxN + 1];
         pq   = new int[maxN + 1];
         qp   = new int[maxN + 1];
-        for (int i = 0; i <= maxN; i++) qp[i] = -1; // -1 表示不在队列中
+        for (int i = 0; i <= maxN; i++) qp[i] = -1; 
     }
 
     public boolean isEmpty() { return n == 0; }
@@ -35,7 +34,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         return qp[i] != -1; 
     }
 
-    // 插入一个索引为 i，值为 key 的元素
+    
     public void insert(int i, Key key) {
         validateIndex(i);
         if (contains(i)) throw new IllegalArgumentException("Index already in PQ");
@@ -68,15 +67,15 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         return keys[pq[1]];
     }
 
-    // 删除并返回最小值的索引
+    
     public int delMin() {
         if (n == 0) throw new NoSuchElementException();
         int min = pq[1];
         exch(1, n--);
         sink(1);
-        qp[min] = -1;        // 标记已删除
-        keys[min] = null;    // 避免游离
-        pq[n+1] = -1;        // 释放空间
+        qp[min] = -1;        
+        keys[min] = null;    
+        pq[n+1] = -1;        
         return min;
     }
 
@@ -94,12 +93,12 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         else return keys[i];
     }
 
-    // 修改索引为 i 的元素值为 newKey
+    
     public void changeKey(int i, Key key) {
         if (!contains(i)) throw new NoSuchElementException();
         keys[i] = key;
-        swim(qp[i]); // 尝试向上浮动
-        sink(qp[i]); // 尝试向下沉
+        swim(qp[i]); 
+        sink(qp[i]); 
     }
 
     /**
@@ -160,7 +159,7 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         qp[i] = -1;
     }
 
-    // 堆操作辅助方法
+    
     private void swim(int k) {
         while (k > 1 && greater(k/2, k)) {
             exch(k, k/2);
@@ -178,12 +177,12 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         }
     }
 
-    // 比较的是 keys 里的实际值
+    
     private boolean greater(int i, int j) {
         return keys[pq[i]].compareTo(keys[pq[j]]) > 0;
     }
 
-    // 交换时，必须同时更新 pq 和 qp 两个映射
+    
     private void exch(int i, int j) {
         int swap = pq[i];
         pq[i] = pq[j];
@@ -226,40 +225,5 @@ public class IndexMinPQ<Key extends Comparable<Key>> implements Iterable<Integer
         }
     }
 
-
-    /**
-     * Unit tests the {@code IndexMinPQ} data type.
-     *
-     * @param args the command-line arguments
-     */
-    public static void main(String[] args) {
-        // insert a bunch of strings
-        String[] strings = { "it", "was", "the", "best", "of", "times", "it", "was", "the", "worst" };
-
-        IndexMinPQ<String> pq = new IndexMinPQ<String>(strings.length);
-        for (int i = 0; i < strings.length; i++) {
-            pq.insert(i, strings[i]);
-        }
-
-        // delete and print each key
-        while (!pq.isEmpty()) {
-            int i = pq.delMin();
-            StdOut.println(i + " " + strings[i]);
-        }
-        StdOut.println();
-
-        // reinsert the same strings
-        for (int i = 0; i < strings.length; i++) {
-            pq.insert(i, strings[i]);
-        }
-
-        // print each key using the iterator
-        for (int i : pq) {
-            StdOut.println(i + " " + strings[i]);
-        }
-        while (!pq.isEmpty()) {
-            pq.delMin();
-        }
-
-    }
+    
 }
