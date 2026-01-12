@@ -1,7 +1,8 @@
 package src.structure_and_algorithm;
 
 import edu.princeton.cs.algs4.StdOut;
-
+//O(log N) time complexity for insert, delete, decreaseKey, and increaseKey operations
+//O(1) time complexity for minKey, minIndex, contains, isEmpty, and size operations
 public class LaunchIndexMinPQ {
 
     /**
